@@ -1,0 +1,31 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .borderTop {
+    @apply border-t-[1px] border-t-zinc-800;
+  }
+  .borderBottom {
+    @apply border-b-[1px] border-b-zinc-800;
+  }
+  .borderRight {
+    @apply border-r-[1px] border-r-zinc-800;
+  }
+  .borderLeft {
+    @apply border-l-[1px] border-l-zinc-800;
+  }
+  .borderAll {
+    @apply border-[1px] border-zinc-800;
+  }
+  /* ======================== About Me Start ========================== */
+  .aboutRightLi {
+    @apply text-zinc-400 text-base font-normal flex justify-between items-center border-b-[1px] border-gray-800 py-2;
+  }
+  .aboutRightLiSpan {
+    @apply bg-designColor text-black uppercase px-4 py-[1px] rounded-md;
+  }
+  /* ======================== About Me End ============================ */
+}
