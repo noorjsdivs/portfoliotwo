@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { FaUser, FaEnvelope } from "react-icons/fa";
 import { IoIosPaper } from "react-icons/io";
@@ -20,13 +20,22 @@ const Home = () => {
   const [blog, setBlog] = useState(false);
   const [contact, setContact] = useState(false);
   const [sidenav,setSidenav]= useState(false)
+  const ref = useRef()
+
+  useEffect(()=>{
+    document.body.addEventListener("click",(e)=>{
+      if(e.target.contains(ref.current)){
+        setSidenav(false)
+      }
+    })
+  },[])
   return (
     <div className="w-[85%] h-[85%] bg-transparent text-white z-50 flex items-start justify-between">
       {/* ================= Left Icons End here ======================== */}
       <div className="w-16 h-96 bg-transparent flex flex-col gap-4">
         {/* ======= Home Icon start */}
         <div
-          onClick={() => setSidenav(!sidenav)}
+          onClick={() => setSidenav(true)}
           className="w-full h-20 bg-bodyColor rounded-3xl flex justify-center items-center cursor-pointer group"
         >
           <div className="flex flex-col gap-1.5 overflow-hidden">
@@ -34,30 +43,32 @@ const Home = () => {
             <span className="w-8 h-[2px] bg-textColor inline-block group-hover:bg-designColor duration-300"></span>
             <span className="w-8 h-[2px] bg-textColor inline-block -translate-x-3.5 group-hover:translate-x-0 transition-transform duration-300 group-hover:bg-designColor"></span>
           </div>
-          {/* ============= Sidenav Start here ============= */}
-          {sidenav && (
-            <div className="w-full h-screen fixed top-0 left-0 bg-black bg-opacity-50 z-50">
-              <div className="w-96 h-full relative">
-                <motion.div
-                  initial={{ x: -500, opacity: 0 }}
-                  animate={{ x: 0, opacity: 1 }}
-                  transition={{ duration: 0.5 }}
-                  className="w-full h-full bg-bodyColor overflow-y-scroll scrollbar-thin scrollbar-thumb-[#646464]"
-                >
-                  <Sidenav />
-                </motion.div>
-                <span
-                  onClick={() => setSidenav(false)}
-                  className="absolute top-0 -right-16 w-12 h-12 bg-bodyColor text-2xl text-textColor hover:text-designColor duration-300 cursor-pointer flex items-center justify-center"
-                >
-                  <MdOutlineClose />
-                </span>
-              </div>
-            </div>
-          )}
-          {/* ============= Sidenav End here =============== */}
         </div>
         {/* ======= Home Icon End */}
+
+        {/* ============= Sidenav Start here ============= */}
+        {sidenav && (
+          <div className="w-full h-screen fixed top-0 left-0 bg-black bg-opacity-50 z-50">
+            <div className="w-96 h-full relative">
+              <motion.div
+              ref={ref}
+                initial={{ x: -500, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ duration: 0.5 }}
+                className="w-full h-full bg-bodyColor overflow-y-scroll scrollbar-thin scrollbar-thumb-[#646464]"
+              >
+                <Sidenav />
+              <span
+                onClick={() => setSidenav(false)}
+                className="absolute top-0 -right-16 w-12 h-12 bg-bodyColor text-2xl text-textColor hover:text-designColor duration-300 cursor-pointer flex items-center justify-center z-50"
+              >
+                <MdOutlineClose />
+              </span>
+              </motion.div>
+            </div>
+          </div>
+        )}
+        {/* ============= Sidenav End here =============== */}
         {/* ======= Other Icons Start */}
         <div className="w-full h-80 bg-bodyColor rounded-3xl flex flex-col items-center justify-between py-6">
           {/* About Icon */}
