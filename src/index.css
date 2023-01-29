@@ -28,4 +28,7 @@
     @apply bg-designColor text-black uppercase px-4 py-[1px] rounded-md;
   }
   /* ======================== About Me End ============================ */
+  .sidenavLi{
+    @apply text-textColor border-b-[1px] border-b-zinc-500 py-4 text-base hover:text-designColor duration-300
+  }
 }
