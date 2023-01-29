@@ -22,6 +22,7 @@ const Left = () => {
         <img
           className="w-full h-full object-cover rounded-2xl"
           src={bannerImg}
+          loading="priority"
           alt="bannerImage"
         />
       </div>
