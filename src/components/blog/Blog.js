@@ -7,7 +7,7 @@ const Blog = () => {
   return (
     <div>
       <Title title="Latest" subTitle="Posts" />
-      <div className="grid grid-cols-2 gap-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lgl:gap-10">
         <div className="px-6">
           <BlogCard
             image={blogImgOne}

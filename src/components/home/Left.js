@@ -5,7 +5,7 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { AiFillTwitterCircle } from "react-icons/ai";
 import { SiYoutubemusic } from "react-icons/si";
 import { FiInstagram, FiMail, FiSend } from "react-icons/fi";
-import CV from "../../assets/Noor_Mohammad_resume.pdf"
+import CV from "../../assets/Noor_Mohammad_resume.pdf";
 import { bannerImg } from "../../assets/index";
 
 const Left = () => {
@@ -17,7 +17,7 @@ const Left = () => {
     delaySpeed: 2000,
   });
   return (
-    <div className="w-5/12 h-full bg-bodyColor rounded-2xl shadow-testShwdow z-10">
+    <div className="w-full lgl:w-5/12 h-full bg-bodyColor rounded-2xl shadow-testShwdow z-10">
       <div className="w-full h-3/5">
         <img
           className="w-full h-full object-cover rounded-2xl"
@@ -59,8 +59,8 @@ const Left = () => {
         </div>
         <div className="flex h-14">
           <a
-          href={CV}
-          target="_blank"
+            href={CV}
+            target="_blank"
             className="w-1/2 border-t-[1px] borderRight border-t-zinc-800 text-sm tracking-wide uppercase  gap-2 hover:text-designColor duration-300"
             rel="noreferrer"
           >

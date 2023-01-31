@@ -65,11 +65,11 @@ const Contact = () => {
     }
   };
   return (
-    <div>
+    <div className="w-full">
       <Title title="Get" subTitle="in Touch" />
-      <div className="p-6 flex justify-between gap-20">
-        <div className="w-1/2">
-          <p className="flex justify-between w-full text-lg text-[#ccc] py-4 border-b-[1px] border-b-zinc-800">
+      <div className="p-6 w-full flex flex-col md:flex-row justify-between gap-4 md:gap-10 lgl:gap-20">
+        <div className="w-full lgl:w-1/2">
+          <p className="flex gap-6 justify-between w-full text-lg text-[#ccc] py-4 border-b-[1px] border-b-zinc-800">
             <span className="bg-designColor text-gray-700 text-sm font-titleFont font-medium px-2 rounded-md flex items-center justify-center">
               Address:
             </span>
@@ -82,8 +82,8 @@ const Contact = () => {
             +968 97859628
           </p>
         </div>
-        <div className="w-1/2">
-          <p className="flex justify-between w-full text-lg text-[#ccc] py-4 border-b-[1px] border-b-zinc-800">
+        <div className="w-full lgl:w-1/2">
+          <p className="flex justify-between lgl:gap-6 w-full text-lg text-[#ccc] py-4 border-b-[1px] border-b-zinc-800">
             <span className="bg-designColor text-gray-700 text-sm font-titleFont font-medium px-2 rounded-md flex items-center justify-center">
               Email:
             </span>
@@ -110,7 +110,7 @@ const Contact = () => {
             method="POST"
             className="p-6 flex flex-col gap-6"
           >
-            <div className="w-full flex gap-10 justify-between">
+            <div className="w-full flex flex-col lgl:flex-row gap-4 lgl:gap-10 justify-between">
               <input
                 onChange={handleName}
                 value={clientName}
@@ -142,7 +142,7 @@ const Contact = () => {
                 errMessages
                   ? "border-red-600 focus-visible:border-red-600"
                   : "border-zinc-600 focus-visible:border-designColor"
-              } w-full bg-transparent border-2 px-4 py-2 text-base text-gray-200 outline-none duration-300`}
+              } w-full bg-transparent border-2 px-4 py-2 text-base text-gray-200 outline-none duration-300 resize-none`}
               placeholder="Your Message"
               rows="4"
             ></textarea>

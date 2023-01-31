@@ -7,7 +7,7 @@ import ServicesCard from "./ServicesCard";
 
 const MyServices = () => {
   return (
-    <div className="grid grid-cols-2">
+    <div className="grid grid-cols-1 md:grid-cols-2">
       <ServicesCard
         icons={<BiCodeAlt />}
         title="Web Development"

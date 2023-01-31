@@ -19,20 +19,20 @@ const Home = () => {
   const [projects, setProjects] = useState(false);
   const [blog, setBlog] = useState(false);
   const [contact, setContact] = useState(false);
-  const [sidenav,setSidenav]= useState(false)
-  const ref = useRef()
+  const [sidenav, setSidenav] = useState(false);
+  const ref = useRef();
 
-  useEffect(()=>{
-    document.body.addEventListener("click",(e)=>{
-      if(e.target.contains(ref.current)){
-        setSidenav(false)
+  useEffect(() => {
+    document.body.addEventListener("click", (e) => {
+      if (e.target.contains(ref.current)) {
+        setSidenav(false);
       }
-    })
-  },[])
+    });
+  }, []);
   return (
-    <div className="w-[85%] h-[85%] bg-transparent text-white z-50 flex items-start justify-between">
+    <div className="w-full lgl:w-[85%] h-full lgl:h-[85%] bg-transparent text-white z-50 flex items-start justify-between p-4 lgl:p-0">
       {/* ================= Left Icons End here ======================== */}
-      <div className="w-16 h-96 bg-transparent flex flex-col gap-4">
+      <div className="w-16 h-96 bg-transparent hidden lgl:flex flex-col gap-4">
         {/* ======= Home Icon start */}
         <div
           onClick={() => setSidenav(true)}
@@ -51,19 +51,19 @@ const Home = () => {
           <div className="w-full h-screen fixed top-0 left-0 bg-black bg-opacity-50 z-50">
             <div className="w-96 h-full relative">
               <motion.div
-              ref={ref}
+                ref={ref}
                 initial={{ x: -500, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ duration: 0.5 }}
                 className="w-full h-full bg-bodyColor overflow-y-scroll scrollbar-thin scrollbar-thumb-[#646464]"
               >
                 <Sidenav />
-              <span
-                onClick={() => setSidenav(false)}
-                className="absolute top-0 -right-16 w-12 h-12 bg-bodyColor text-2xl text-textColor hover:text-designColor duration-300 cursor-pointer flex items-center justify-center z-50"
-              >
-                <MdOutlineClose />
-              </span>
+                <span
+                  onClick={() => setSidenav(false)}
+                  className="absolute top-0 -right-16 w-12 h-12 bg-bodyColor text-2xl text-textColor hover:text-designColor duration-300 cursor-pointer flex items-center justify-center z-50"
+                >
+                  <MdOutlineClose />
+                </span>
               </motion.div>
             </div>
           </div>
@@ -182,12 +182,21 @@ const Home = () => {
         {/* ======= Other Icons End */}
       </div>
       {/* ================= Left Icons Start here ====================== */}
-      <div className="w-[94%] h-full flex items-center">
+      <div className="w-full lgl:w-[94%] h-full flex flex-col gap-6 lgl:gap-0 lgl:flex-row items-center">
         {/* ======================== Home Left Start here ============================ */}
         <Left />
         {/* ======================== Home Left End here ============================== */}
-        <div className="w-8/12 h-[95%] bg-bodyColor rounded-2xl flex justify-center items-center">
-          <div className="w-full h-[96%] overflow-y-scroll scrollbar-thin scrollbar-thumb-[#646464]">
+        <div className="w-full lgl:w-8/12 h-[95%] bg-bodyColor rounded-2xl flex justify-center items-center">
+          {/* ======================== Smaller device content Start ======================== */}
+          <div className="w-full h-full lgl:hidden bg-transparent rounded-2xl flex flex-col gap-6">
+            <About />
+            <Resume />
+            <Projects />
+            <Blog />
+            <Contact />
+          </div>
+          {/* ======================== Smaller device content End ========================== */}
+          <div className="w-full h-[96%] hidden lgl:flex justify-center overflow-y-scroll scrollbar-thin scrollbar-thumb-[#646464]">
             {about && (
               <motion.div
                 initial={{ opacity: 0 }}
